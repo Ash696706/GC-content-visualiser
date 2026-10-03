@@ -1,17 +1,10 @@
 import matplotlib.pyplot as plt
-
-
-# -----------------------------
 # DNA Validation
-# -----------------------------
-
 def validate_dna(dna):
     valid_bases = set("ATGC")
-
     for base in dna:
         if base not in valid_bases:
             return False
-
     return True
 
 
