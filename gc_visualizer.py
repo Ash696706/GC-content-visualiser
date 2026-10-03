@@ -6,12 +6,7 @@ def validate_dna(dna):
         if base not in valid_bases:
             return False
     return True
-
-
-# -----------------------------
 # Nucleotide Count
-# -----------------------------
-
 def nucleotide_count(dna):
     return {
         "A": dna.count("A"),
@@ -19,29 +14,14 @@ def nucleotide_count(dna):
         "G": dna.count("G"),
         "C": dna.count("C")
     }
-
-
-# -----------------------------
 # GC Content
-# -----------------------------
-
 def gc_content(dna):
     gc_count = dna.count("G") + dna.count("C")
     return (gc_count / len(dna)) * 100
-
-
-# -----------------------------
 # AT Content
-# -----------------------------
-
 def at_content(dna):
     return 100 - gc_content(dna)
-
-
-# -----------------------------
 # Sliding Window GC Analysis
-# -----------------------------
-
 def sliding_window_gc(dna, window_size):
 
     gc_percentages = []
@@ -65,12 +45,7 @@ def sliding_window_gc(dna, window_size):
         )
 
     return gc_percentages
-
-
-# -----------------------------
 # Main Program
-# -----------------------------
-
 dna = input("Enter DNA sequence: ").upper()
 
 # Validate DNA
@@ -128,30 +103,20 @@ else:
             dna,
             window_size
         )
-
-        # -----------------------------
         # GC Profile Graph
-        # -----------------------------
-
+        
         positions = range(
             1,
             len(gc_percentages) + 1
         )
-
         plt.plot(
             positions,
             gc_percentages,
             marker="o"
         )
-
         plt.title("Sliding Window GC Content")
-
         plt.xlabel("Window Starting Position")
-
         plt.ylabel("GC Content (%)")
-
         plt.ylim(0, 100)
-
         plt.grid(True)
-
         plt.show()
